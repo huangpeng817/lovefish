@@ -18,7 +18,7 @@
 				<c:set var="photoesStr" value="${c.currentHead }" />
 				<c:forEach items="${fn:split(photoesStr,',')}" var="photo" begin="0" end="0" varStatus="stat">
 				<%-- <a href="<c:url value='/CarefullyChosenServlet?method=getDetail&Id=${c.id }'/>"> --%>
-					<img alt="钓点图片" src="${photo }" border="0" width="100px" height="100px">
+					<img alt="头像图片" src="${photo }" border="0" width="100px" height="100px">
 				<!-- </a> -->
 				</c:forEach>
 				<div>

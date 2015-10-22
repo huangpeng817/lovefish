@@ -224,6 +224,7 @@ public class CarefullyChosenServlet extends BaseServlet {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("PageIndex", pc + ""); // 当前是第几页
 		params.put("Count", Constants.CAREFULLYCHOSEN_PAGE_COUNT); // 每页要显示的数量
+		// 此处的Category应该或者可以作为参数传递，目前是模仿手机APP中显示全部精选，可以作为下拉框或者是选项卡展示
 		params.put("Category", "1"); // 精选类型(全部 = 1, 爱渔资讯 = 2,活动信息 = 3, 钓点信息 = 4,钓友圈信息 = 5) 默认值：1
 		params.put("Token", Constants.TOKEN);
 		params.put("DeviceNo", Constants.DEVICENO);

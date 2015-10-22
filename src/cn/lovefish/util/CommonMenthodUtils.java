@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 
 public class CommonMenthodUtils {
 
+	public static String getPhotoes(String photoesTemp) {
+		String photoes = photoesTemp.replace("[", "");
+		photoes = photoes.replace("]", "");
+		photoes = photoes.replace("\"", "");
+		return photoes;
+	}
+	
 	public static int getPc(HttpServletRequest request) {
 		int pc = 1;
 		String pcParam = request.getParameter("pc");

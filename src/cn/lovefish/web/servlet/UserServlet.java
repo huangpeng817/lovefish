@@ -7,9 +7,10 @@ import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 import cn.itcast.servlet.BaseServlet;
 import cn.lovefish.test.HttpClientUtil;
@@ -22,6 +23,24 @@ public class UserServlet extends BaseServlet {
 	
 	private static final long serialVersionUID = 1L;
 
+	public String loginByMobile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
+		
+		String UserName = request.getParameter("MobilePhone");
+		String Pwd = request.getParameter("Pwd");
+		String md5Digest = DigestUtils.md5Hex(Pwd);
+		String url = "http://120.24.159.207:8081/UMS/UM/mLogin";
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("UserName", UserName);
+		params.put("Pwd", md5Digest);
+		params.put("DeviceNo", "DeviceNo");
+		params.put("LastLoginType", Constants.LOGIN_LASTLOGINTYPE);
+		// 当执行成功json返回如下形式，说明该手机号注册成功，不能再次注册，考虑下一步的登录功能，密码为123456
+		String jsonStrTemp = HttpClientUtil.get(url, params); // 获取到json格式的所有字符串数据
+		System.out.println("收到json数据： " + jsonStrTemp);
+		
+		return null;
+	}
+	
 	public String reigsterByMobile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
 		
 		String MobilePhone = request.getParameter("MobilePhone");

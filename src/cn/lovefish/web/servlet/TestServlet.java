@@ -102,7 +102,7 @@ public class TestServlet extends BaseServlet {
 		    }
 		    else if (k.equals("Photoes")) {
 		    	String photoesTemp = obj.getString(k);
-//		    	System.out.println("photoesTemp: " + photoesTemp);
+		    	System.out.println("photoesTemp: " + photoesTemp);
 		    	String photoes = photoesTemp.replace("[", "");
 		    	photoes = photoes.replace("]", "");
 		    	photoes = photoes.replace("\"", "");
