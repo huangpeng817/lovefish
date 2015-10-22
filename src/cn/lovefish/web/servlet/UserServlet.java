@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import cn.itcast.servlet.BaseServlet;
-import cn.lovefish.test.HttpClientUtil;
-import cn.lovefish.test.HttpEntityNullException;
-import cn.lovefish.test.HttpStatusErrorException;
+import cn.lovefish.util.HttpClientUtil;
+import cn.lovefish.util.HttpEntityNullException;
+import cn.lovefish.util.HttpStatusErrorException;
 import cn.lovefish.util.Constants;
 
 @WebServlet("/UserServlet")

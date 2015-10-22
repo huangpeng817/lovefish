@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>test页面</title>
+<title>钓点列表页面</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/style/list.css'/>">
 <script type="text/javascript"
-	src="<c:url value='/jquery-1.9.1.min.js'/>"></script>
+	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
  		$.ajax({
@@ -38,7 +38,7 @@
 	<br>
 	<div id="searchPanel">
 		<form id="myForm"
-			action="<c:url value='/TestServlet?method=findAll' />" method="post">
+			action="<c:url value='/FishingPointServlet?method=findAll' />" method="post">
 
 		<input id="Lat" type="hidden" name="Lat" value="">
 		<input id="Lng" type="hidden" name="Lng" value="">
@@ -61,7 +61,7 @@
 				<c:set var="photoesStr" value="${fp.photoes }" />
 				<c:forEach items="${fn:split(photoesStr,',')}" var="photo" begin="0" end="0" varStatus="stat">
 				<%-- ${photo }" --%>
-				<a href="<c:url value='/TestServlet?method=getDetail&Id=${fp.id }'/>"><img alt="钓点图片" src="${photo }" border="0" width="100px" height="100px"></a>
+				<a href="<c:url value='/FishingPointServlet?method=getDetail&Id=${fp.id }'/>"><img alt="钓点图片" src="${photo }" border="0" width="100px" height="100px"></a>
 				</c:forEach>
 				<p>${fp.name }</p>
 				<p>距离您${fp.distance }km</p>
@@ -80,7 +80,7 @@
 				<a href="javascript:void(0)" disabled='true'>上一页</a>
 			</c:when>
 			<c:otherwise>
-				<a href="<c:url value='/TestServlet?method=findAll&Lat=${Lat }&Lng=${Lng }&Region=${Region }&RegionID=${RegionID }&condition=${condition }&Sort=${Sort }&pc=${pc-1 }'/>">上一页</a>
+				<a href="<c:url value='/FishingPointServlet?method=findAll&Lat=${Lat }&Lng=${Lng }&Region=${Region }&RegionID=${RegionID }&condition=${condition }&Sort=${Sort }&pc=${pc-1 }'/>">上一页</a>
 			</c:otherwise>
 		</c:choose>
 		
@@ -89,7 +89,7 @@
 				<a href="javascript:void(0)" disabled='true'>下一页</a>
 			</c:when>
 			<c:otherwise>
-				<a href="<c:url value='/TestServlet?method=findAll&Lat=${Lat }&Lng=${Lng }&Region=${Region }&RegionID=${RegionID }&condition=${condition }&Sort=${Sort }&pc=${pc+1 }'/>">下一页</a>
+				<a href="<c:url value='/FishingPointServlet?method=findAll&Lat=${Lat }&Lng=${Lng }&Region=${Region }&RegionID=${RegionID }&condition=${condition }&Sort=${Sort }&pc=${pc+1 }'/>">下一页</a>
 			</c:otherwise>
 		</c:choose>
 	<%-- </center> --%>

@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我的朋友圈列表</title>
+<title>朋友圈列表</title>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/style/list.css'/>">
 <script type="text/javascript"
-	src="<c:url value='/jquery-1.9.1.min.js'/>"></script>
+	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <script type="text/javascript">
 	
 </script>
@@ -69,7 +69,7 @@
 			</c:when>
 			<c:otherwise>
 				<a
-					href="<c:url value='/FriendCircleServlet?method=getMyFriendCircleList&pc=${pc-1 }'/>">上一页</a>
+					href="<c:url value='/FriendCircleServlet?method=getFriendCircleList&pc=${pc-1 }'/>">上一页</a>
 			</c:otherwise>
 		</c:choose>
 
@@ -79,7 +79,7 @@
 			</c:when>
 			<c:otherwise>
 				<a
-					href="<c:url value='/FriendCircleServlet?method=getMyFriendCircleList&pc=${pc+1 }'/>">下一页</a>
+					href="<c:url value='/FriendCircleServlet?method=getFriendCircleList&pc=${pc+1 }'/>">下一页</a>
 			</c:otherwise>
 		</c:choose>
 	</div>

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FishingPointData {
 	private Long Count;
-	private boolean HasElse;
+	private Boolean HasElse;
 	private Long PageIndex;
 	private List<FishingPoint> Items;
 	
@@ -19,12 +19,6 @@ public class FishingPointData {
 	public void setCount(Long count) {
 		Count = count;
 	}
-	public boolean isHasElse() {
-		return HasElse;
-	}
-	public void setHasElse(boolean hasElse) {
-		HasElse = hasElse;
-	}
 	public Long getPageIndex() {
 		return PageIndex;
 	}
@@ -38,10 +32,12 @@ public class FishingPointData {
 		this.Items = items;
 	}
 
-	@Override
-	public String toString() {
-		return "FishingPointData的toString方法： [Count=" + Count + ", HasElse=" + HasElse + ", PageIndex=" + PageIndex + "]";
+	public Boolean getHasElse() {
+		return HasElse;
 	}
-	
-	
+
+	public void setHasElse(Boolean hasElse) {
+		HasElse = hasElse;
+	}
+
 }

@@ -1,4 +1,4 @@
-package cn.lovefish.test;
+package cn.lovefish.util;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

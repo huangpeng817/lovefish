@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>朋友圈详情页面</title>
 <script type="text/javascript"
-	src="<c:url value='/jquery-1.9.1.min.js'/>"></script>
+	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/bootstrap/css/bootstrap.min.css'/>">
 <script type="text/javascript" src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>

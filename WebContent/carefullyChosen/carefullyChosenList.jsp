@@ -9,18 +9,9 @@
 <title>爱渔精选</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/style/list.css'/>">
 <script type="text/javascript"
-	src="<c:url value='/jquery-1.9.1.min.js'/>"></script>
+	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <script type="text/javascript">
-	/* $(function(){
-	   $(document).one("load",function(){
-		   $("#carefullyChosenForm").submit();
-	   });
-	}); */
 
-	/* $(document).ready(function() {
-		$("#carefullyChosenForm").submit();
-		return;
-	}); */
 </script>
 </head>
 <body>

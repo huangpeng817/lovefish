@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册(手机号)页面</title>
 <script type="text/javascript"
-	src="<c:url value='/jquery-1.9.1.min.js'/>"></script>
+	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		
