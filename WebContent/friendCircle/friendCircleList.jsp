@@ -25,7 +25,7 @@
 			<input type="submit" value="朋友圈查询" />
 		</form> <br>
 		<form id="myfriendCircleForm"
-			action="<c:url value='/FriendCircleServlet?method=getMyFriendCircleList' />"
+			action="<c:url value='/FriendCircleServlet?method=getMyFriendDynamicList' />"
 			method="post">
 			<input type="submit" value="钓友动态查询" />
 		</form>
@@ -38,8 +38,10 @@
 				<li>
 					<div class="inner">
 						<p>
+							<a href="<c:url value='/FriendCircleServlet?method=getFriendCircleListByUserID&UserID=${fc.HXAccount }'/>">
 							<img alt="朋友圈头像" src="${fc.currentHead }" width="30px"
 								height="30px">
+							</a>	
 							${fc.rank }级
 							${fc.nickName }
 							${fc.publishTime }
