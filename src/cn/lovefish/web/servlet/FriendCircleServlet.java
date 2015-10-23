@@ -27,6 +27,50 @@ public class FriendCircleServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * 发布钓友圈，暂未实现上传图片
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws ServletException
+	 * @throws URISyntaxException
+	 * @throws IOException
+	 * @throws HttpStatusErrorException
+	 * @throws HttpEntityNullException
+	 */
+	public String addDynamic(HttpServletRequest request, HttpServletResponse response) throws ServletException, URISyntaxException, IOException, HttpStatusErrorException, HttpEntityNullException {
+		
+		
+//		String upload = request.getParameter("upload");
+//		System.out.println(upload);
+		
+		
+		String localAdd = request.getParameter("localAdd");
+		String IsAdv = request.getParameter("IsAdv"); // 值为0 或者 1，默认值为0，表示不上传足迹
+		String content = request.getParameter("content");
+		String lat = request.getParameter("Lat");
+		String lon = request.getParameter("Lng");
+		
+		String url = "http://120.24.159.207:8081/FCS/FriendCircle/SendFriendCircle";
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("content", content); 
+		params.put("localAdd", localAdd); 
+		params.put("lon", lon); 
+		params.put("lat", lat); 
+		params.put("IsAdv", IsAdv); 
+		params.put("Token", Constants.TOKEN);
+		params.put("DeviceNo", Constants.DEVICENO);
+		
+		HttpClientUtil.get(url, params);
+		
+		return getFriendCircleList(request, response);
+	}
+	
+	public String addDynamicUI(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		
+		return "f:/friendCircle/sendDynamic.jsp";
+	}
+	
+	/**
 	 * 点击朋友圈列表的头像（获取环信Id），显示该用户的所有所发过的朋友圈说说
 	 * @param request
 	 * @param response
@@ -73,7 +117,7 @@ public class FriendCircleServlet extends BaseServlet {
 	}
 	
 	/**
-	 * 返回“钓友动态”,即只有是好友关系和自己的朋友圈说说,但是好像没有该API接口
+	 * 返回“钓友动态”,即只有是好友关系和自己的朋友圈说说
 	 * @param request
 	 * @param response
 	 * @return

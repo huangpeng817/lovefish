@@ -29,6 +29,11 @@
 			method="post">
 			<input type="submit" value="钓友动态查询" />
 		</form>
+		<div align="right">
+		<a href="<c:url value='/FriendCircleServlet?method=addDynamicUI'/>">
+			<img width="100px" height="100px" alt="发布钓友圈" src="<c:url value='/style/images/sendDynamic.jpg'/>">
+		</a>
+		</div>
 	</div>
 	<br>
 
