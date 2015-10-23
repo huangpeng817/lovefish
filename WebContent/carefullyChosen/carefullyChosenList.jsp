@@ -38,8 +38,7 @@
 				</a>
 				</c:forEach>
 				<p>${cc.title }</p>
-				<p>${cc.newSource }</p>
-				<p>${cc.publishTime }</p>
+				<p>${cc.newsSource } ${cc.publishTime }</p>
 			</div>
 		</li>
 	</c:forEach>

@@ -41,6 +41,32 @@
 				
 			});
 		});
+		
+		$("#collectBtn").click(function() {
+			$.ajax({
+				url: "http://120.24.159.207:8081/CMS/Collection/CreateCollection",
+				data : {Token: "4h83vlv63o216q8gum9j91qhrn", DeviceNo: "DeviceNo",  Type: "1", Id: newsId},
+				type : "POST",
+				dataType : "json",
+				asyn : false,
+				cache : false,
+				error : function(XMLResponse) {
+					alert("进入error函数");
+				},
+				success : function(result) {
+					if (result.Message == "收藏成功") {
+						alert("收藏成功");
+						return;
+					}
+					if (result.Message == "取消成功") {
+						alert("取消成功");
+						return;
+					}
+					alert("原来的赞数为：" + zanCount);
+				}
+				
+			});
+		});
 	});
 </script>
 </head>
@@ -72,7 +98,7 @@
 	<div>
 	<button id="zanBtn"><img width="100px" height="100px" border="0" alt="点赞图标" src="<c:url value='/style/images/zan.png'/>"></button>
 	<a id="commentA" href="<c:url value='/CarefullyChosenServlet?method=addCommentUI&NewsID=${cc.id }'/>"><img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>"></a>
-<%-- 	<button id="commentBtn"><img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>"></button> --%>
+	<button id="collectBtn"><img width="100px" height="100px" border="0" alt="收藏图标" src="<c:url value='/style/images/collect.jpg'/>"></button>
 	</div>
 </body>
 </html>

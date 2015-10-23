@@ -60,8 +60,6 @@ public class CarefullyChosenServlet extends BaseServlet {
 		
 		String NewsID = request.getParameter("Id");
 		String Content = request.getParameter("Content");
-		System.out.println("#addComment.NewsID: " + NewsID);
-		System.out.println("#addComment.Content: " + Content);
 		String url = "http://120.24.159.207:8081/CMS/News/NewsComment";
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("NewsID", NewsID);

@@ -87,10 +87,9 @@
 	</div>
 	
 	
-	<div align="right">
+	<%-- <div align="right">
 	<button id="zanBtn"><img width="100px" height="100px" border="0" alt="点赞图标" src="<c:url value='/style/images/zan.png'/>"></button>
 	<a id="commentA" href="<c:url value='/CarefullyChosenServlet?method=addCommentUI&NewsID=${cc.id }'/>"><img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>"></a>
-<%-- 	<button id="commentBtn"><img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>"></button> --%>
-	</div>
+	</div> --%>
 </body>
 </html>

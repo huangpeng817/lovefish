@@ -7,7 +7,8 @@ public class CarefullyChosen {
     private String Title; // 资讯标题 String
     private String Content; // 资讯内容 String
     // 返回的json数据中字段叫NewsSource有一个s，但是这个是API粘贴过来的，属于失误，值得注意
-    private String NewSource; // 来源 String
+    private String NewsSource; // 来源 String
+    private String NewSource; // 来源 String 两个字段为了解决精选详情页面中返回的json数据中的为NewSource的问题
     private String SourceUrl; // 原文链接 String
     private String Publisher; // 发布人编号 String
     private String NickName; // 发布人名称 String
@@ -47,12 +48,6 @@ public class CarefullyChosen {
 	}
 	public void setContent(String content) {
 		Content = content;
-	}
-	public String getNewSource() {
-		return NewSource;
-	}
-	public void setNewSource(String newSource) {
-		NewSource = newSource;
 	}
 	public String getSourceUrl() {
 		return SourceUrl;
@@ -124,6 +119,22 @@ public class CarefullyChosen {
 	}
 	public void setVideo(Boolean video) {
 		Video = video;
+	}
+
+	public String getNewsSource() {
+		return NewsSource;
+	}
+
+	public void setNewsSource(String newsSource) {
+		NewsSource = newsSource;
+	}
+
+	public String getNewSource() {
+		return NewSource;
+	}
+
+	public void setNewSource(String newSource) {
+		NewSource = newSource;
 	}
 
 }
