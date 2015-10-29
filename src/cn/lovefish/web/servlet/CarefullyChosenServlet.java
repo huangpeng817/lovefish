@@ -17,6 +17,7 @@ import cn.itcast.servlet.BaseServlet;
 import cn.lovefish.domain.CarefullyChosen;
 import cn.lovefish.domain.CarefullyChosenData;
 import cn.lovefish.domain.CommentData;
+import cn.lovefish.domain.PraiseData;
 import cn.lovefish.util.HttpClientUtil;
 import cn.lovefish.util.HttpEntityNullException;
 import cn.lovefish.util.HttpStatusErrorException;
@@ -27,6 +28,34 @@ import cn.lovefish.util.Constants;
 public class CarefullyChosenServlet extends BaseServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	public String getPrasieList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
+		
+		int pc = CommonMenthodUtils.getPc(request); // 获取到当前页码
+		request.setAttribute("pc", pc);
+		
+		String NewsID = request.getParameter("Id");
+		request.setAttribute("Id", NewsID);
+		String url = "http://120.24.159.207:8081/FCS/FriendCircle/GetPraiseList";
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Id", NewsID);
+		params.put("PageIndex", pc + "");
+		params.put("Count", Constants.COMMENT_PAGE_COUNT);
+		params.put("PrasieType", "3"); // PrasieType=3表示对资讯点赞
+		String jsonStrTemp = HttpClientUtil.get(url, params); // 获取到json格式的所有字符串数据
+		
+		JSONObject jsonObjTemp = JSON.parseObject(jsonStrTemp);
+		
+		String jsonStr = jsonObjTemp.getString("Data");
+		
+		PraiseData data = JSON.parseObject(jsonStr, PraiseData.class);
+		
+		request.setAttribute("HasElse", data.getHasElse());
+		
+		request.setAttribute("Items", data.getItems());
+		
+		return "f:/carefullyChosen/praiseList.jsp";
+	}
 	
 	public String getCommentList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
 		

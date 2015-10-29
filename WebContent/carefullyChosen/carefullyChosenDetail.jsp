@@ -25,8 +25,8 @@
 		});
 		
 		$("#zanP").click(function() {
-			alert("zanP元素被点击了");
-			//$("#getPrasieListForm").submit();
+			//alert("zanP元素被点击了");
+			$("#getPrasieListForm").submit();
 		});
 		
 		var newsId = "${cc.id }";
