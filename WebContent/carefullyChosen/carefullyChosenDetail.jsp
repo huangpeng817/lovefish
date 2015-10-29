@@ -9,12 +9,24 @@
 <title>爱渔精选详情页面</title>
 <script type="text/javascript"
 	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/bootstrap/css/bootstrap.min.css'/>">
+<script type="text/javascript" src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+		$("#model_save").click(function() {
+			$("#submitInput").click();
+		});
 		
 		$("#commnetP").click(function() {
 			//alert("commnetP元素被点击了");
 			$("#getCommentListForm").submit();
+		});
+		
+		$("#zanP").click(function() {
+			alert("zanP元素被点击了");
+			//$("#getPrasieListForm").submit();
 		});
 		
 		var newsId = "${cc.id }";
@@ -95,9 +107,47 @@
 		<input type="hidden" name="Id" value="${cc.id }">
 	</form>
 	
+	<form id="getPrasieListForm" action="<c:url value='/CarefullyChosenServlet'/>">
+		<input type="hidden" name="method" value="getPrasieList">
+		<input type="hidden" name="Id" value="${cc.id }">
+	</form>
+	
 	<div>
 	<button id="zanBtn"><img width="100px" height="100px" border="0" alt="点赞图标" src="<c:url value='/style/images/zan.png'/>"></button>
-	<a id="commentA" href="<c:url value='/CarefullyChosenServlet?method=addCommentUI&NewsID=${cc.id }'/>"><img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>"></a>
+	
+	<!-- 按钮触发模态框 -->
+	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+ 		<img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>">
+	</button>
+	<!-- 模态框 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-describedby="描述信息">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">添加评论</h4>
+	      </div>
+	      <div class="modal-body">
+	        	<!-- 填写的内容 -->
+	        	<form action="<c:url value='/CarefullyChosenServlet'/>" method="post">
+					<input type="hidden" name="method" value="addComment">
+					<input type="hidden" name="Id" value="${cc.id }">
+					<textarea rows="" cols="" name="Content"></textarea>
+					<input id="submitInput" type="submit" value="发送" style="display: none;"> 
+				</form>
+	      </div>
+	      <div class="modal-footer">
+	        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> -->
+	        <button type="button" class="btn btn-primary" id="model_save">发送</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<%-- <a id="commentA" href="<c:url value='/CarefullyChosenServlet?method=addCommentUI&NewsID=${cc.id }'/>">
+		<img width="100px" height="100px" border="0" alt="评论图标" src="<c:url value='/style/images/comment.png'/>">
+	</a> --%>
+	
+	
 	<button id="collectBtn"><img width="100px" height="100px" border="0" alt="收藏图标" src="<c:url value='/style/images/collect.jpg'/>"></button>
 	</div>
 </body>

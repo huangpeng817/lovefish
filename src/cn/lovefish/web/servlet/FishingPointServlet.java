@@ -92,6 +92,10 @@ public class FishingPointServlet extends BaseServlet {
 		
 		String jsonStr = jsonObjTemp.getString("Data");
 		
+		if (jsonStr == null) {
+			return "f:/fishingPoint/fishingPointList.jsp";
+		}
+		
 		FishingPointData data = JSON.parseObject(jsonStr, FishingPointData.class);
 		
 		request.setAttribute("HasElse", data.getHasElse());
