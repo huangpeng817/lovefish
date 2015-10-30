@@ -19,7 +19,7 @@
 			height="200px">
 	</c:forEach>
 
-	<p>${fp.name }</p>
+	<p>${fp.name } <span style="color: blue; font-size: xx-large;">${fp.pointType }</span></p>
 	<p>联系人：${fp.linkName }</p>
 	<p>地址：${fp.localAdd }</p>
 	<p>鱼种：${fp.fishType }</p>
