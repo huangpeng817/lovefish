@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,18 +33,14 @@ public class CommonMenthodUtils {
 	}
 	
 	public static String findRegionID(String cityName) throws IOException {
-		//TODO
-		/**
-		 * 暂时用的是绝对路径，脱离当前环境将不能运行，待修改
-		 */
-		BufferedReader br = new BufferedReader(new FileReader("E:\\data\\eclipse\\lovefish\\src\\city.plist"));
+		InputStreamReader isr = new InputStreamReader(CommonMenthodUtils.class.getClassLoader().getResourceAsStream("city.plist"));
+		BufferedReader br = new BufferedReader(isr);
 		String s = "";
 		int index = 0;
 		int temp = 0;
 		while ((s = br.readLine()) != null) {
 			index++;
 			if (s.contains(cityName)) {
-//				System.out.println(index);
 				break;
 			}
 		}

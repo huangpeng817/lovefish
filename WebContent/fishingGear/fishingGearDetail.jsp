@@ -28,7 +28,7 @@
 	</c:forEach>
 	</c:when>
 	<c:otherwise>
-		<!-- <div id="showMap"></div> -->
+		<div id="showMap"></div>
 	</c:otherwise>
 	</c:choose>
 <div style="float: right;">
