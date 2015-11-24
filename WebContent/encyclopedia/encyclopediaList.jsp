@@ -39,10 +39,10 @@
 			<input type="button" value="教程经验查询" onclick="getJCJYList()">
 			<input type="hidden" name="tabIndex" value="1">
 		</form>
-		<form id="zbpcForm" action="<c:url value='/EncyclopediaServlet?method=getZBPCList'/>" method="post">
+		<form id="zbpcForm" action="<c:url value='/EncyclopediaServlet?method=initLoad'/>" method="post">
 			<input type="hidden" name="tabIndex" value="2">
 		</form>
-		<form id="syhForm" action="<c:url value='/EncyclopediaServlet?method=getSYHList'/>" method="post">
+		<form id="syhForm" action="<c:url value='/EncyclopediaServlet?method=initLoad'/>" method="post">
 			<input type="hidden" name="tabIndex" value="3">
 		</form>
 	</div>
@@ -129,7 +129,8 @@
 				<a href="javascript:void(0)" disabled='true'>上一页</a>
 			</c:when>
 			<c:otherwise>
-				<a href="<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc-1 }'/>">上一页</a>
+				<!-- <a id="prePage" href="">上一页</a> -->
+				<a id="prePage" href="<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc-1 }&tabIndex=${tabIndex }'/>">上一页</a>
 			</c:otherwise>
 		</c:choose>
 		</p>
@@ -140,7 +141,8 @@
 				<a href="javascript:void(0)" disabled='true'>下一页</a>
 			</c:when>
 			<c:otherwise>
-				<a href="<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc+1 }'/>">下一页</a>
+				<!-- <a id="nextPage" href="">下一页</a> -->
+				<a id="nextPage" href="<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc+1 }&tabIndex=${tabIndex }'/>">下一页</a>
 			</c:otherwise>
 		</c:choose>
 		</p>
@@ -174,16 +176,22 @@
 			$("#jcjyLi").attr("class","active");
 			$("#zbpcLi").attr("class","");
 			$("#syhLi").attr("class","");
+			//$("#prePage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc="+"${pc-1 }"+"&tabIndex=" + index + "'/>");
+			//$("#nextPage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc+1 }&tabIndex=" + index + "'/>");
 		}
 		if (index == "2") {
 			$("#jcjyLi").attr("class","");
 			$("#zbpcLi").attr("class","active");
 			$("#syhLi").attr("class","");
+			//$("#prePage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc-1 }&tabIndex=" + index + "'/>");
+			//$("#nextPage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc+1 }&tabIndex=" + index + "'/>");
 		}
 		if (index == "3") {
 			$("#jcjyLi").attr("class","");
 			$("#zbpcLi").attr("class","");
 			$("#syhLi").attr("class","active");
+			//$("#prePage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc-1 }&tabIndex=" + index + "'/>");
+			//$("#nextPage").attr("href","<c:url value='/EncyclopediaServlet?method=initLoad&pc=${pc+1 }&tabIndex=" + index + "'/>");
 		}
 		//alert("页面加载的值：" + index);
 		$.cookie('tabIndex', null);
