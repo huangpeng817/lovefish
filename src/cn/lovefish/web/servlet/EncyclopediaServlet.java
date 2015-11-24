@@ -29,7 +29,6 @@ public class EncyclopediaServlet extends BaseServlet {
 	public String initLoad(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
 		String tabIndex = request.getParameter("tabIndex");
 		request.setAttribute("tabIndex", tabIndex);
-		System.out.println(tabIndex);
 		int pc = CommonMenthodUtils.getPc(request); // 获取到当前页码
 		request.setAttribute("pc", pc);
 		
