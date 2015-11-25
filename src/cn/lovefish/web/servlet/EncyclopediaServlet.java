@@ -41,7 +41,7 @@ public class EncyclopediaServlet extends BaseServlet {
 			params.put("Category", "2"); 
 		} else if (tabIndex.equals("2")) {
 			params.put("Category", "3"); 
-		} else {
+		} else if (tabIndex.equals("3")) {
 			params.put("Category", "4"); 
 		}
 		params.put("Token", Constants.TOKEN);

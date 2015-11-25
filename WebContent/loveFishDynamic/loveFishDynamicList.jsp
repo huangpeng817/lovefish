@@ -173,20 +173,17 @@
 			$("#gnxwLi").attr("class","");
 			$("#gjssLi").attr("class","");
 			$("#gnssLi").attr("class","");
-		}
-		if (index == "2") {
+		} else if (index == "2") {
 			$("#gjxwLi").attr("class","");
 			$("#gnxwLi").attr("class","active");
 			$("#gjssLi").attr("class","");
 			$("#gnssLi").attr("class","");
-		}
-		if (index == "3") {
+		} else if (index == "3") {
 			$("#gjxwLi").attr("class","");
 			$("#gnxwLi").attr("class","");
 			$("#gjssLi").attr("class","active");
 			$("#gnssLi").attr("class","");
-		}
-		if (index == "4") {
+		} else if (index == "4") {
 			$("#gjxwLi").attr("class","");
 			$("#gnxwLi").attr("class","");
 			$("#gjssLi").attr("class","");

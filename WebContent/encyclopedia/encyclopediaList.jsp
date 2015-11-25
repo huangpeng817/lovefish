@@ -154,13 +154,11 @@
 			$("#jcjyLi").attr("class","active");
 			$("#zbpcLi").attr("class","");
 			$("#syhLi").attr("class","");
-		}
-		if (index == "2") {
+		} else if (index == "2") {
 			$("#jcjyLi").attr("class","");
 			$("#zbpcLi").attr("class","active");
 			$("#syhLi").attr("class","");
-		}
-		if (index == "3") {
+		} else if (index == "3") {
 			$("#jcjyLi").attr("class","");
 			$("#zbpcLi").attr("class","");
 			$("#syhLi").attr("class","active");
