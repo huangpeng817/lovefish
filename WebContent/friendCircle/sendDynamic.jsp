@@ -34,11 +34,14 @@
 	<br>
 	<br>
 	<center>
-		<form action="<c:url value='/FriendCircleServlet'/>" method="post">
-			<input type="hidden" name="method" value="addDynamic">
+		<form action="<c:url value='/SendDynamicServlet'/>" method="post" enctype="multipart/form-data">
 			<input id="Lat" type="hidden" name="Lat" value="">
 			<input id="Lng" type="hidden" name="Lng" value="">
 			<table>
+				<tr>
+					<td>图片：</td>
+					<td><input id="photo" type="file" name="photo"></td>
+				</tr>
 				<tr>
 					<td>位置：</td>
 					<td><input id="localAdd" type="text" name="localAdd"></td>
