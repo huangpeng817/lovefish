@@ -44,20 +44,17 @@ public class CommonMenthodUtils {
 				break;
 			}
 		}
-//		System.out.println("查找到目标城市的行数为：" + index);
 		br.close();
-		/**
-		 * 暂时用的是绝对路径，脱离当前环境将不能运行，待修改
-		 */
-		BufferedReader br1 = new BufferedReader(new FileReader(new File("E:\\data\\eclipse\\lovefish\\src\\city.plist")));
+		
+		InputStreamReader isr1 = new InputStreamReader(CommonMenthodUtils.class.getClassLoader().getResourceAsStream("city.plist"));
+		BufferedReader br1 = new BufferedReader(isr1);
+		
 		while ((s = br1.readLine()) != null) {
 			temp++;
 			if (temp == index - 7) {
-//				System.out.println(temp);
 				String targetLine = br1.readLine().trim();
 				String[] strArray = targetLine.split(">");
 				int i = strArray[1].indexOf("<");
-//				System.out.println(strArray[1].substring(0, i));
 				return strArray[1].substring(0, i);
 			}
 		}
