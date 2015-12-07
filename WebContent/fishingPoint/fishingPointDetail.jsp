@@ -43,25 +43,50 @@
 </div>
 </body>
 </html>
+
 <script type="text/javascript">
-	var lat = "${fp.lat}";
-	var lng = "${fp.lng}";
-	var localAdd = "${fp.localAdd}";
-	// 百度地图API功能
-	var map = new BMap.Map("showMap");
-	var point = new BMap.Point(lng,lat);
- 	/* var point = new BMap.Point(121.301173,29.770033); */
-	map.centerAndZoom(point,12);
-	// 创建地址解析器实例
-	var myGeo = new BMap.Geocoder();
-	// 将地址解析结果显示在地图上,并调整地图视野 
-	/* myGeo.getPoint("浙江省宁波市鄞州区厂跟至观顶线", function(point){ */
- 	myGeo.getPoint(localAdd, function(point){
-		if (point) {
-			map.centerAndZoom(point, 16);
-			map.addOverlay(new BMap.Marker(point));
-		}else{
-			alert("您选择地址没有解析到结果!");
-		}
-	}, "宁波市");
+
+	var cityName = ""; // 默认值 宁波市
+	
+	$(document).ready(function() {
+			$.ajax({
+			url: "http://api.map.baidu.com/location/ip?ak=c36mRDe5Ts3v6zst94lIfxyh&coor=bd09ll",
+			type : "POST",
+			dataType : "jsonp",
+			asyn : false,
+			cache : false,
+			error : function(XMLResponse) {
+				alert("进入error函数");
+			},
+			success : function(result) {
+				cityName = result.content.address_detail.city;
+				
+				var lat = "${fp.lat}";
+				var lng = "${fp.lng}";
+				var localAdd = "${fp.localAdd}";
+				// 百度地图API功能
+				var map = new BMap.Map("showMap");
+				var point = new BMap.Point(lng,lat);
+			 	/* var point = new BMap.Point(121.301173,29.770033); */
+				map.centerAndZoom(point,12);
+				// 创建地址解析器实例
+				var myGeo = new BMap.Geocoder();
+				// 将地址解析结果显示在地图上,并调整地图视野 
+				/* myGeo.getPoint("浙江省宁波市鄞州区厂跟至观顶线", function(point){ */
+			 	myGeo.getPoint(localAdd, function(point){
+					if (point) {
+						map.centerAndZoom(point, 16);
+						map.addOverlay(new BMap.Marker(point));
+					}else{
+						alert("您选择地址没有解析到结果!");
+					}
+				}, cityName);
+				//alert("在success函数中显示： " + cityName);
+			}
+			
+		});
+	});
+	
+	
+	
 </script>
