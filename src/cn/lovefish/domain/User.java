@@ -150,5 +150,12 @@ public class User {
 	public void setFriends(int friends) {
 		Friends = friends;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [UserId=" + UserId + ", UserName=" + UserName + ", NickName=" + NickName + ", NoteName=" + NoteName + ", HXAccount=" + HXAccount + ", IsFriend=" + IsFriend + ", Gender=" + Gender + ", Region=" + Region + ", RegionId="
+				+ RegionId + ", MobilePhone=" + MobilePhone + ", Rank=" + Rank + ", Head=" + Head + ", WallPaper=" + WallPaper + ", Dinstince=" + Dinstince + ", Signature=" + Signature + ", UserEmail=" + UserEmail + ", UserEmailVer="
+				+ UserEmailVer + ", Score=" + Score + ", Experience=" + Experience + ", FriendCircles=" + FriendCircles + ", Friends=" + Friends + "]";
+	}
     
 }
