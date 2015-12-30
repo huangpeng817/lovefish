@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSONObject;
 import cn.itcast.servlet.BaseServlet;
 import cn.lovefish.domain.FriendCircle;
 import cn.lovefish.domain.FriendCircleData;
+import cn.lovefish.domain.User;
 import cn.lovefish.util.HttpClientUtil;
 import cn.lovefish.util.HttpEntityNullException;
 import cn.lovefish.util.HttpStatusErrorException;
@@ -246,6 +247,19 @@ public class FriendCircleServlet extends BaseServlet {
 		request.setAttribute("fc", fc);
 		
 		return "f:/friendCircle/friendCircleDetail.jsp";
+	}
+	
+	public String getCurrentUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
+		String url = "http://120.24.159.207:8081/UMS/UM/GetCurrentUser";
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("Token", Constants.TOKEN);
+		params.put("DeviceNo", Constants.DEVICENO);
+		String jsonStrTemp = HttpClientUtil.get(url, params);
+		JSONObject jsonObjTemp = JSON.parseObject(jsonStrTemp);
+		String jsonStr = jsonObjTemp.getString("Data");
+//		User user = JSON.parseObject(jsonStr, User.class);
+		response.getWriter().println(jsonStr);
+		return null;
 	}
 
 }

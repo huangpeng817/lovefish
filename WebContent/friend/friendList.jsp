@@ -49,6 +49,9 @@
 								height="30px">
 							</a>	
 							${f.nickName }
+							<a href="<c:url value='/FriendServlet?method=deleteFriend&FriendID=${f.HXAccount }'/>">
+								删除好友
+							</a>
 						</p>
 					</div>
 				</li>

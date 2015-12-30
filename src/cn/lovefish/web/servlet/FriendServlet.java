@@ -118,5 +118,23 @@ public class FriendServlet extends BaseServlet {
 		
 	}
 	
+	public String deleteFriend(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, URISyntaxException, HttpStatusErrorException, HttpEntityNullException {
+		
+		String FriendID = request.getParameter("FriendID");
+//		System.out.println("朋友编号： " + FriendID);
+		
+		String url = "http://120.24.159.207:8081/UMS/UM/DeleteFriend";
+		Map<String, String> params = new HashMap<String, String>();
+		
+		params.put("FriendID", FriendID);
+		params.put("Token", Constants.TOKEN);
+		params.put("DeviceNo", Constants.DEVICENO);
+		
+		String jsonStrTemp = HttpClientUtil.get(url, params); // 获取到json格式的所有字符串数据
+		
+//		return "f:/friend/addFriend.jsp";
+		return getFriendList(request, response);
+	}
+	
 
 }

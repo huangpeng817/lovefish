@@ -12,7 +12,28 @@
 <script type="text/javascript"
 	src="<c:url value='/script/jquery-1.9.1.min.js'/>"></script>
 <script type="text/javascript">
-	
+$(document).ready(function () {
+	$.ajax({
+		url: "<c:url value='/FriendCircleServlet'/>",
+		data: {method: "getCurrentUser"},
+		type : "POST",
+		dataType : "json",
+		asyn : false,
+		cache : false,
+		error : function(XMLResponse) {
+			alert("进入error函数");
+		},
+		success : function(result) {
+			$("#WallPaper").attr("src", result.WallPaper);
+			$("#Head").attr("src", result.Head);
+			$("#NickName").text("昵称: " + result.NickName);
+			$("#Friends").text("好友数: " + result.Friends);
+			$("#Gender").text("性别: " + result.Gender);
+			$("#Rank").text("等级: " + result.Rank);
+		}    
+		     
+	});       
+});
 </script>
 </head>
 <body>
@@ -36,6 +57,19 @@
 		</div>
 	</div>
 	<br>
+	
+	<div id="getCurrentUser" style="width: 1000px">
+		<div>
+			<img style="float: left;" id="WallPaper" src="">
+		</div>
+		<div style="position: relative; top: 50px; left: -300px"><!-- absolute -->
+			<div><img id="Head" src=""></div>
+			<p id="NickName">昵称</p>
+			<p id="Friends">好友数</p>
+			<p id="Gender">性别</p>
+			<p id="Rank">等级</p>
+		</div>
+	</div>
 
 	<div id="friendCircleList">
 		<ul>

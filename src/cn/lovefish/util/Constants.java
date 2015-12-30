@@ -13,7 +13,9 @@ public class Constants {
 //	public static final String TOKEN = "4eifmam42ii12a21rv2tvhpsob"; // 刘手机 已经失效
 //	public static final String TOKEN = "1pqfosdk9e4p6qb0433qq8bi9a"; // 爱渔小二
 	// 刘手机(2015/12/24登录发现产生了变化)
-	public static final String TOKEN = "5oiav5smkpv53qpe1ji540e79v";
+//	public static final String TOKEN = "5oiav5smkpv53qpe1ji540e79v";
+	// 刘手机(2015/12/30登录发现又产生了变化，但是和之前的Token一样维持所有信息不变，比如好友数量等等)
+	public static final String TOKEN = "53fgvbi7qnqt696egaaopr6dco";
 	public static final String DEVICENO = "DeviceNo";
 	public static final String 	LOGIN_LASTLOGINTYPE = "2";
 	
